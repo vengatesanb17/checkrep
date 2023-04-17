@@ -18,9 +18,15 @@ steps:
     # targetType: 'inline'
     # script: 'Invoke-AzVMRunCommand -ResourceGroupName ''demoVM2_group'' -Name ''demoVM2'' -CommandId ''RunPowerShellScript'' -ScriptPath ''C:\agent\run.cmd'' -Parameter @{"arg1" = "var1";"arg2" = "var2"}'
 
+# - task: AzureCLI@2
+#   inputs:
+#     azureSubscription: 'vengat-sc-devops'
+#     scriptType: 'ps'
+#     scriptLocation: 'inlineScript'
+   
 - task: AzureCLI@2
   inputs:
     azureSubscription: 'vengat-sc-devops'
     scriptType: 'ps'
     scriptLocation: 'inlineScript'
-    inlineScript: 'Set-AzVMRunCommand -ResourceGroupName "vengat-sc-devops" -VMName "demoVM2" -Location "EastUS" -RunCommandName "RunCommandName" –FilePath "C:\agent\run.cmd"'
+    inlineScript: 'Set-AzVMRunCommand -ResourceGroupName "vengat-sc-devops" -VMName "demoVM2" -Location "EastUS" -RunCommandName "RunCommandName" -FilePath "C:\agent\run.cmd"'
