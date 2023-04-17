@@ -1,14 +1,13 @@
-
 trigger:
 - master
 
 pool:
-  name: 'Default'
+  vmImage: 'windows-latest'
 
 steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
-
+  
 - script: |
 # - task: PowerShell@2
 #   inputs:
@@ -18,5 +17,9 @@ steps:
 
 - task: PowerShell@2
   inputs:
+    azureSubscription: 'vengat-sc-devops'
+    azurePowerShellVersion: 'LatestVersion'
+    machineType: 'Windows'
+    targetMachines: '20.81.154.101'
     targetType: 'inline'
     script: 'C:\agent\run.cmd'
