@@ -11,16 +11,16 @@ steps:
 - script: |
 # - task: PowerShell@2
 #   inputs:
-#     targetType: 'inline'
-#     script: 'New-Item -Path ''C:\Sample-demo'' -ItemType Directory'
-#   displayName: 'Run a one-line script'
+    # azureSubscription: 'vengat-sc-devops'
+    # azurePowerShellVersion: 'LatestVersion'
+    # machineType: 'Windows'
+    # targetMachines: '20.81.154.101'
+    # targetType: 'inline'
+    # script: 'Invoke-AzVMRunCommand -ResourceGroupName ''demoVM2_group'' -Name ''demoVM2'' -CommandId ''RunPowerShellScript'' -ScriptPath ''C:\agent\run.cmd'' -Parameter @{"arg1" = "var1";"arg2" = "var2"}'
 
-
-- task: PowerShell@2
+- task: AzureCLI@2
   inputs:
     azureSubscription: 'vengat-sc-devops'
-    azurePowerShellVersion: 'LatestVersion'
-    machineType: 'Windows'
-    targetMachines: '20.81.154.101'
-    targetType: 'inline'
-    script: 'Invoke-AzVMRunCommand -ResourceGroupName ''demoVM2_group'' -Name ''demoVM2'' -CommandId ''RunPowerShellScript'' -ScriptPath ''C:\agent\run.cmd'' -Parameter @{"arg1" = "var1";"arg2" = "var2"}'
+    scriptType: 'ps'
+    scriptLocation: 'inlineScript'
+    inlineScript: 'Set-AzVMRunCommand -ResourceGroupName "vengat-sc-devops" -VMName "demoVM2" -Location "EastUS" -RunCommandName "RunCommandName" –SourceScript "echo Hello World!"'
