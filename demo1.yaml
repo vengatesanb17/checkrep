@@ -30,17 +30,4 @@ steps:
     azureSubscription: 'vengat-sc-devops'
     scriptType: 'ps'
     scriptLocation: 'inlineScript'
-    inlineScript: 'Get-Module -Name Az -ListAvailable'
-
-- task: AzureCLI@2
-  inputs:
-    azureSubscription: 'vengat-sc-devops'
-    scriptType: 'ps'
-    scriptLocation: 'inlineScript'
-    inlineScript: 'Import-Module -Name Az'
-- task: AzureCLI@2
-  inputs:
-    azureSubscription: 'vengat-sc-devops'
-    scriptType: 'ps'
-    scriptLocation: 'inlineScript'
     inlineScript: 'Set-AzVMRunCommand -ResourceGroupName "vengat-sc-devops" -VMName "demoVM2" -Location "EastUS" -RunCommandName "RunCommandName" -FilePath "C:\agent\run.cmd"'
