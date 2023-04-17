@@ -31,6 +31,13 @@ steps:
     scriptType: 'ps'
     scriptLocation: 'inlineScript'
     inlineScript: 'Get-Module -Name Az -ListAvailable'
+
+- task: AzureCLI@2
+  inputs:
+    azureSubscription: 'vengat-sc-devops'
+    scriptType: 'ps'
+    scriptLocation: 'inlineScript'
+    inlineScript: 'Import-Module -Name Az'
 - task: AzureCLI@2
   inputs:
     azureSubscription: 'vengat-sc-devops'
