@@ -4,10 +4,7 @@ trigger:
 pool:
   vmImage: 'windows-latest'
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-  
+steps:  
 - script: |
 # - task: PowerShell@2
 #   inputs:
